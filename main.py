@@ -13,7 +13,7 @@ def main():
         raise RuntimeError("GEMINI_API_KEY environment variable not found.")
 
     parser = argparse.ArgumentParser(description="Gemini Chatbot")
-    parser.add_argument("user_promt", type=str, help="User promt")
+    parser.add_argument("user_prompt", type=str, help="User prompt")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
     args = parser.parse_args()
     messages = [types.Content(role="user", parts=[types.Part(text=args.user_promt)])]

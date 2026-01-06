@@ -12,7 +12,7 @@ def main():
     for line in result.splitlines():
         print(f"  {line}")
 
-    print("\nResult for '/bin' direcotry:")
+    print("\nResult for '/bin' directory:")
     result = get_files_info("calculator", "/bin")
     for line in result.splitlines():
         print(f"  {line}")
