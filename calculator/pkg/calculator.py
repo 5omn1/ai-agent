@@ -19,6 +19,18 @@ class Calculator:
         tokens = expression.strip().split()
         return self._evaluate_infix(tokens)
 
+    def _apply_operator(self, operators, values):
+        if not operators:
+            return
+
+        operator = operators.pop()
+        if len(values) < 2:
+            raise ValueError(f"not enough operands for operator {operator}")
+
+        b = values.pop()
+        a = values.pop()
+        values.append(self.operators[operator](a, b))
+
     def _evaluate_infix(self, tokens):
         values = []
         operators = []
@@ -45,15 +57,3 @@ class Calculator:
             raise ValueError("invalid expression")
 
         return values[0]
-
-    def _apply_operator(self, operators, values):
-        if not operators:
-            return
-
-        operator = operators.pop()
-        if len(values) < 2:
-            raise ValueError(f"not enough operands for operator {operator}")
-
-        b = values.pop()
-        a = values.pop()
-        values.append(self.operators[operator](a, b))
