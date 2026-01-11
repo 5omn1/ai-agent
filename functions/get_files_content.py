@@ -1,6 +1,6 @@
 import os
 from config import FILE_READ_SIZE_LIMIT
-
+from google.genai import types
 
 def get_file_content(working_directory, file_path):
     try:
@@ -20,3 +20,17 @@ def get_file_content(working_directory, file_path):
         return content
     except OSError as e:
         return f"Error: {e}"
+
+schema_get_files_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Get content of the file",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file": types.Schema(
+                type=types.Type.STRING,
+                description="Get content of the file",
+            ),
+        },
+    ),
+)

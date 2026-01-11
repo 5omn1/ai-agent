@@ -44,7 +44,9 @@ def main():
         print(response.text)
 
     for func_call in response.function_calls:
-        print(f"Calling function: {func_call.name}({func_call.args})")
+        print(f"{func_call.name}")
+        for v in func_call.args.values():
+            print(f"{v}")
 
 
 if __name__ == "__main__":
