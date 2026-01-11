@@ -1,5 +1,5 @@
 from google.genai import types
-from .get_file_info import *
+from .get_files_info import *
 from .get_file_content import *
 from .run_python_file import *
 from .write_file import *
@@ -13,14 +13,14 @@ available_functions = types.Tool(
 
 def call_function(function_call, verbose=False):
     if not verbose:
-        print(f" - Calling function: {function_call.name}")
+        print(f"{function_call.name}")
     else:
-        print(f"Calling function: {function_call.name}({function_call.args})")
+        print(f"{function_call.name}({function_call.args})")
 
     function_name = function_call.name or ""
     function_map = {
         "get_file_content": get_file_content,
-        "get_file_info": get_file_info,
+        "get_files_info": get_files_info,
         "write_file": write_file,
         "run_python_file": run_python_file,
     }
