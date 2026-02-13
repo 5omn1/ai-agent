@@ -1,4 +1,4 @@
-from functions.get_files_content import get_file_content
+from functions.get_file_content import get_file_content
 
 
 def main():
@@ -11,3 +11,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+1
