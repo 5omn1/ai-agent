@@ -1,8 +1,7 @@
-from google.genai import types
-from .get_files_info import *
-from .get_file_content import *
-from .run_python_file import *
-from .write_file import *
+from get_file_content import *
+from get_files_info import *
+from run_python_file import *
+from write_file import *
 
 available_functions = types.Tool(
     function_declarations=[schema_get_file_info,
